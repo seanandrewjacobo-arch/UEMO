@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>UEMO — University Event Management Organization</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="shield" aria-hidden="true">
+          <svg width="42" height="52" viewBox="0 0 42 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21 2L38 10v16c0 16-17 24-17 24S5 44 5 26V10L21 2z" fill="#0D3B66"/>
+            <path d="M21 9l11 5v12s-11 6-11 6-11-6-11-6V14l11-5z" fill="#F4C95D"/>
+          </svg>
+        </div>
+        <div class="titles">
+          <h1>University Event Management Organization</h1>
+          <p class="subtitle">Office of Student Affairs • Membership Registration</p>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#form">Register</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="hero" class="card hero">
+      <div class="hero-left">
+        <h2>Bringing campus events to life — with care, precision, and excellence</h2>
+        <p>UEMO coordinates academic, cultural, and special events across the university. Join our team to grow leadership and event planning experience while serving the student body.</p>
+        <ul class="highlights">
+          <li><strong>Professional training:</strong> logistics, vendor coordination, budgeting</li>
+          <li><strong>Leadership pathways:</strong> officer roles & portfolio building</li>
+          <li><strong>Network:</strong> collaborate with student offices & university units</li>
+        </ul>
+      </div>
+      <div class="hero-right">
+        <dl class="info">
+          <dt>Membership Intake</dt>
+          <dd>Open all year</dd>
+          <dt>Meetings</dt>
+          <dd>Weekly — Wednesdays, 4:00 PM</dd>
+          <dt>Office</dt>
+          <dd>Student Affairs Building, 2nd Floor</dd>
+        </dl>
+        <a class="btn-primary" href="#form">Register Now</a>
+      </div>
+    </section>
+
+    <section id="about" class="card about">
+      <h3>Mission</h3>
+      <p>To provide well-organized, inclusive, and high-quality events that enhance student life while developing professional skills for members.</p>
+
+      <h3>Vision</h3>
+      <p>To be the university’s trusted, student-led event partner — known for excellence, integrity, and impactful experiences.</p>
+    </section>
+
+    <section id="form" class="card form-card">
+      <h3>Membership Registration</h3>
+      <p class="muted">Please provide accurate details. Fields marked with <span class="req">*</span> are required.</p>
+
+      <form id="regForm" method="post" action="send.php" novalidate>
+        <div class="grid">
+          <label class="field">
+            <span class="label-text">Full name <span class="req">*</span></span>
+            <input type="text" name="fullname" id="fullname" required />
+          </label>
+
+          <label class="field">
+            <span class="label-text">Student ID <span class="req">*</span></span>
+            <input type="text" name="studentid" id="studentid" required />
+          </label>
+
+          <label class="field">
+            <span class="label-text">Email <span class="req">*</span></span>
+            <input type="email" name="email" id="email" required />
+          </label>
+
+          <label class="field">
+            <span class="label-text">Course / Program</span>
+            <input type="text" name="course" id="course" />
+          </label>
+
+          <label class="field">
+            <span class="label-text">Year Level</span>
+            <select name="year" id="year">
+              <option value="1">1st Year</option>
+              <option value="2">2nd Year</option>
+              <option value="3">3rd Year</option>
+              <option value="4">4th Year</option>
+              <option value="Other">Other</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span class="label-text">Contact Number</span>
+            <input type="tel" name="phone" id="phone" />
+          </label>
+        </div>
+
+        <label class="field full">
+          <span class="label-text">Areas of interest</span>
+          <div class="checkboxes">
+            <label><input type="checkbox" name="interest[]" value="Events"> Events</label>
+            <label><input type="checkbox" name="interest[]" value="Logistics"> Logistics</label>
+            <label><input type="checkbox" name="interest[]" value="Marketing"> Marketing</label>
+            <label><input type="checkbox" name="interest[]" value="Technical"> Technical</label>
+          </div>
+        </label>
+
+        <label class="field full">
+          <span class="label-text">Availability</span>
+          <input type="text" name="availability" id="availability" placeholder="e.g. Weekends, Mon 5–8 PM" />
+        </label>
+
+        <div class="form-actions">
+          <button type="submit" class="btn-primary" id="submitBtn">Submit Registration</button>
+          <button type="reset" class="btn-secondary">Reset</button>
+        </div>
+
+        <p id="status" class="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section id="contact" class="card contact">
+      <h3>Contact</h3>
+      <p class="muted">For questions, contact the Student Affairs office or email <a href="mailto:student.affairs@univ.edu">student.affairs@univ.edu</a>.</p>
+      <div class="contact-grid">
+        <div>
+          <h4>Office</h4>
+          <p>Student Affairs Building<br>2nd Floor</p>
+        </div>
+        <div>
+          <h4>Phone</h4>
+          <p>(02) 1234-5678</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> University Event Management Organization — UEMO</p>
+      <p class="muted small">Please allow 24–48 business hours for registration confirmation.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
